@@ -6,7 +6,14 @@
 
 class	ScalarConverter
 {
-	static convert(std::string param);
-}
+	private:
+		ScalarConverter();
+		~ScalarConverter();
+		ScalarConverter	&operator=(const ScalarConverter &src);
+		ScalarConverter(const ScalarConverter &src);
+
+	public:
+		static void	convert(const std::string param);
+};
 
 #endif
