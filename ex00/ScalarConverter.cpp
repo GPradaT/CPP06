@@ -1,19 +1,32 @@
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#include "ScalarConverter.hpp"
 
-#include <string>
-#include <iostream>
-
-class	ScalarConverter
+int	toInt(const std::string &param)
 {
-	private:
-		ScalarConverter();
-		~ScalarConverter();
-		ScalarConverter	&operator=(const ScalarConverter &src);
-		ScalarConverter(const ScalarConverter &src);
+	long int	result;
 
-	public:
-		static void	convert(const std::string param);
-};
+	result = std::strtol(param);
+	return 0;
+}
 
-#endif
+ScalarConverter::ScalarConverter() {}
+
+ScalarConverter::~ScalarConverter() {}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &src) {(void)src;}
+
+ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &src)
+{
+	(void)src;
+	return *this;
+}
+
+static void	ScalarConverter::convert(const std::string param)
+{
+	try
+	{
+		toInt(param);
+		toChar(param);
+		toFloat(param);
+		toDouble(param);
+	} catch(std::exce) {}
+}
