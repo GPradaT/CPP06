@@ -3,14 +3,15 @@
 
 #include <string>
 #include <iostream>
+#include <stdexcept>
 #include <cstdlib>
 #include <cctype>
 #include "myException.hpp"
 
-#define CHAR "char: "
+#define CHAR "char: '"
 
-int	toInt(std::string &param);
-char	toChar(std::string &param);
+void	toInt(const std::string &param);
+void	toChar(const std::string &param);
 /*float	toFloat(std::string &param);
 double	toDouble(std::string &param);
 */
@@ -27,5 +28,6 @@ class	ScalarConverter
 	public:
 		static void	convert(const std::string &param);
 };
+
 
 #endif
