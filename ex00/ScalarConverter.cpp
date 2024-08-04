@@ -4,8 +4,37 @@ int	toInt(const std::string &param)
 {
 	long int	result;
 
-	result = std::strtol(param);
-	return 0;
+	result = std::strtol(param.c_str(), NULL, 10);
+	return static_cast<int>(result);
+}
+
+static void	tryCastChar(const std::string param)
+{
+	if (param.length() < 4)
+	{
+		long int check = std::strtod(param.c_str(),param.back());
+		if (check == 0)
+			throw Error::charZero();
+		if (std::isprint(int(check)))
+		{
+			if (!(std::strtol(param.c_str(), NULL, 10) == 0))
+				std::cout << CHAR << "'" << static_cast<char>(std::strtol(param.c_str(), NULL, 10)) << "'" << std::endl;
+		}
+		else
+			throw Error::errChar();
+	}
+	else
+		throw Error::errChar();
+}
+
+void	toChar(const std::string param)
+{
+	try
+	{
+		tryCastChar(param);
+	} catch (const char *error) {
+		std::cout << error << std::endl;	
+	}
 }
 
 ScalarConverter::ScalarConverter() {}
@@ -20,13 +49,10 @@ ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &src)
 	return *this;
 }
 
-static void	ScalarConverter::convert(const std::string param)
+void	ScalarConverter::convert(const std::string &param)
 {
-	try
-	{
-		toInt(param);
-		toChar(param);
-		toFloat(param);
-		toDouble(param);
-	} catch(std::exce) {}
+	toChar(param);
+	toInt(param);
+/*	toFloat(param);
+	toDouble(param);*/
 }

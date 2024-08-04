@@ -3,11 +3,18 @@
 
 #include <string>
 #include <iostream>
+#include <cstdlib>
+#include <cctype>
+#include "myException.hpp"
 
-int	toInt(std::string param);
-char	toChar(std::string param);
-float	toFloat(std::string param);
-double	toDouble(std::string param);
+#define CHAR "char: "
+
+int	toInt(std::string &param);
+char	toChar(std::string &param);
+/*float	toFloat(std::string &param);
+double	toDouble(std::string &param);
+*/
+class	Error;
 
 class	ScalarConverter
 {
@@ -18,7 +25,7 @@ class	ScalarConverter
 		ScalarConverter(const ScalarConverter &src);
 
 	public:
-		static void	convert(const std::string param);
+		static void	convert(const std::string &param);
 };
 
 #endif

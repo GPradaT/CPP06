@@ -6,14 +6,15 @@
 #    By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 13:30:03 by gprada-t          #+#    #+#              #
-#    Updated: 2024/08/02 10:39:03 by gprada-t         ###   ########.fr        #
+#    Updated: 2024/08/04 10:52:15 by gprada-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ScalarConverter
 
-SRCS = ScalarConverter.cpp \
-      main.cpp
+SRCS = myException.cpp \
+	ScalarConverter.cpp \
+	main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(SRCS:.cpp=.d)
