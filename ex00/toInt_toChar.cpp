@@ -1,6 +1,5 @@
 #include "ScalarConverter.hpp"
 
-
 static void	tryCastChar(const std::string param)
 {
 	const char	*c_str = param.c_str();

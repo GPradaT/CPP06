@@ -2,10 +2,17 @@
 #include <cstdint>
 #include <iomanip>
 #include <iostream>
-    
+#include "ScalarConverter.hpp"    
 #define SEPARATOR "========================================================="
+
+
 int main()
 {
+	for (float i = 0; i < 100; i++)
+	{
+		std::cout << SEPARATOR <<std::endl;
+		ScalarConverter::convert(std::to_string(i));
+	}
 	std::cout << SEPARATOR <<std::endl;
 	ScalarConverter::convert("4342.34242f");
 	std::cout << SEPARATOR <<std::endl;
@@ -52,13 +59,5 @@ int main()
 	COUT( UINT_MAX       );
 	COUT( ULONG_MAX      );
 	COUT( ULLONG_MAX     );
-	COUT( PTRDIFF_MIN    );
-	COUT( PTRDIFF_MAX    );
-	COUT( SIZE_MAX       );
-	COUT( SIG_ATOMIC_MIN );
-	COUT( SIG_ATOMIC_MAX );
-	COUT( WCHAR_MIN      );
-	COUT( WCHAR_MAX      );
-	COUT( WINT_MIN       );
-	COUT( WINT_MAX       );
+	return 0;
 }
