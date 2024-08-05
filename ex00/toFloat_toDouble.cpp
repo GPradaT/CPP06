@@ -12,8 +12,10 @@ static void	tryCastFloat(const std::string param)
 	char		*endptr;
 	float	result = static_cast<float>(std::strtod(c_str, &endptr));
 
-	if ((result < FLT_MAX && result > FLT_MIN || result == 0) 
-			|| param_excepts(static_cast<double>(result)))
+	if (result == 0)
+		std::cout << std::fixed << std::setprecision(1);
+	if (((result < FLT_MAX && result > FLT_MIN) || result == 0) 
+			|| (param_excepts(static_cast<double>(result)) && param.length() <= 4))
 		std::cout << FLOAT << result << "f" << std::endl;
 	else
 		throw Error::errFloat();
@@ -36,7 +38,8 @@ static void	tryCastDouble(const std::string param)
 	char		*endptr;
 	double	result = static_cast<double>(std::strtod(c_str, &endptr));
 
-	if ((result < DBL_MAX && result > DBL_MIN || result == 0) || param_excepts(result))
+	if (((result < DBL_MAX && result > DBL_MIN) || result == 0)
+			|| (param_excepts(result) && param.length() <= 4))
 		std::cout << DOUBLE << result << std::endl;
 	else
 		throw Error::errDouble();

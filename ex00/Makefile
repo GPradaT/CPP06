@@ -6,7 +6,7 @@
 #    By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 13:30:03 by gprada-t          #+#    #+#              #
-#    Updated: 2024/08/05 11:07:29 by gprada-t         ###   ########.fr        #
+#    Updated: 2024/08/05 15:04:48 by gprada-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS = toInt_toChar.cpp \
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(SRCS:.cpp=.d)
 
-CPPNDFLAGS = c++ -std=c++98 #-Wall -Wextra -Werror -fsanitize=address -MMD -MP
+CPPNDFLAGS = c++ -std=c++98 -Wall -Wextra -Werror -fsanitize=address -MMD -MP
 
 all: $(NAME)
 

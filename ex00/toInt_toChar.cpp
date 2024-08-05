@@ -12,7 +12,7 @@ static void	tryCastChar(const std::string param)
 	{
 		if (check == 0)
 			throw Error::charZero();
-		if (std::isprint(check))
+		if (std::isprint(static_cast<char>(check)))
 			std::cout << CHAR << static_cast<char>(check) << "'" << std::endl;
 		else
 			throw Error::errChar();
@@ -37,7 +37,7 @@ static void	tryCastInt(const std::string param)
 	char	*endptr;
 	double bigInt = std::strtod(c_str, &endptr);
 
-	if ((bigInt < INT_MAX && bigInt > INT_MIN) ||
+	if ((bigInt < INT_MAX && bigInt > INT_MIN) &&
 		!(std::isinf(bigInt) || std::isnan(static_cast<float>(bigInt))))
 		std::cout << INT << static_cast<int>(bigInt) << std::endl;
 	else
