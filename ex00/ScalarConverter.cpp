@@ -16,6 +16,6 @@ void	ScalarConverter::convert(const std::string &param)
 {
 	toChar(param);
 	toInt(param);
-/*	toFloat(param);
-	toDouble(param);*/
+	toFloat(param);
+	toDouble(param);
 }

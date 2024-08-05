@@ -1,18 +1,10 @@
 #include "ScalarConverter.hpp"
 
-void	toInt(const std::string &param)
-{
-	long int	result;
-
-	result = std::strtol(param.c_str(), NULL, 10);
-	if (result > INT_MAX || result < INT_MIN)
-		throw std::underflow_error("shit of error");
-	//return static_cast<int>(result);
-}
 
 static void	tryCastChar(const std::string param)
 {
 	int check = static_cast<int>(std::strtol(param.c_str(), NULL, 10));
+
 	if (check < CHAR_MAX && check > CHAR_MIN)
 	{
 		if (check == 0)
@@ -26,12 +18,32 @@ static void	tryCastChar(const std::string param)
 		throw Error::errChar();
 }
 
-void	toChar(const std::string &param)
+void	ScalarConverter::toChar(const std::string &param)
 {
 	try
 	{
 		tryCastChar(param);
 	} catch (const char *error) {
 		std::cout << error << std::endl;	
+	}
+}
+
+static void	tryCastInt(const std::string param)
+{
+	long int bigInt = std::strtol(param.c_str(), NULL, 10);
+
+	if ((bigInt < INT_MAX && bigInt > INT_MIN) && bigInt != 0)
+		std::cout << INT << static_cast<int>(bigInt) << std::endl;
+	else
+		throw Error::errInt();
+}
+
+void	ScalarConverter::toInt(const std::string &param)
+{
+	try
+	{
+		tryCastInt(param);
+	} catch (const char *error) {
+		std::cout << error << std::endl;
 	}
 }
