@@ -3,9 +3,12 @@
 
 static void	tryCastChar(const std::string param)
 {
-	int check = static_cast<int>(std::strtol(param.c_str(), NULL, 10));
+	const char	*c_str = param.c_str();
+	char	*endptr;
+	double check = std::strtod(c_str, &endptr);
 
-	if (check < CHAR_MAX && check > CHAR_MIN)
+	if ((check < CHAR_MAX && check > CHAR_MIN) || 
+		!(std::isinf(check) || std::isnan(static_cast<float>(check))))
 	{
 		if (check == 0)
 			throw Error::charZero();
@@ -30,9 +33,12 @@ void	ScalarConverter::toChar(const std::string &param)
 
 static void	tryCastInt(const std::string param)
 {
-	long int bigInt = std::strtol(param.c_str(), NULL, 10);
+	const char	*c_str = param.c_str();
+	char	*endptr;
+	double bigInt = std::strtod(c_str, &endptr);
 
-	if ((bigInt < INT_MAX && bigInt > INT_MIN) && bigInt != 0)
+	if ((bigInt < INT_MAX && bigInt > INT_MIN) ||
+		!(std::isinf(bigInt) || std::isnan(static_cast<float>(bigInt))))
 		std::cout << INT << static_cast<int>(bigInt) << std::endl;
 	else
 		throw Error::errInt();
