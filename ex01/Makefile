@@ -6,13 +6,13 @@
 #    By: gprada-t <gprada-t@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 13:30:03 by gprada-t          #+#    #+#              #
-#    Updated: 2024/08/06 12:42:08 by gprada-t         ###   ########.fr        #
+#    Updated: 2024/08/06 19:11:03 by gprada-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Serialization
 
-SRCS = main.cpp
+SRCS = Serializer.cpp main.cpp
 #	test.cpp
 
 OBJS = $(SRCS:.cpp=.o)
